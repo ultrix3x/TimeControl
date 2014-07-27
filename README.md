@@ -10,16 +10,19 @@ Removes all filters.
  
 ### AddFilter($filter, $onlyNow);
 Adds a new filter.
+
 The filter is composed as follows:
-{action};{year};{month};{day};{start};{end}
+
+```{action};{year};{month};{day};{start};{end}```
+
 Action: 0 gives false and 1 gives true on a match
-Year: The year with four digits or "*" for any year
-Month: The number of the month or "*" for any month. It is possible to use ","
+* Year: The year with four digits or "```*```" for any year
+* Month: The number of the month or "```*```" for any month. It is possible to use ","
   to separate more than one month "1,2" means january and february. It is also
   possible to use "-" to indicate a span "1-4" means january through april.
   If month begins with "w:" then it indicated weeknumber instead, year will
   become obsolete and day will indicate day of week.
-Day: The numerical value of the date or "*" for any date. It is possible to use
+* Day: The numerical value of the date or "*" for any date. It is possible to use
   "," to separate more than one date "1,2" means "1" and "2". It is also
   possible to use "-" to indicate a span "1-4" means "1st" through "4th".
   If day begins with "w:" then it indicated day of week instead, year will
@@ -29,15 +32,15 @@ Day: The numerical value of the date or "*" for any date. It is possible to use
   Please note that a 0 for day of week means monday and 6 means sunday. This
   results in a logical connection for normal workingdays (monday through friday)
   as 0 through 4 and weekends (saturday and sunday) as 5 and 6.
-Start: Time when event should start. Hours and minutes separated by a ":". A "*"
+* Start: Time when event should start. Hours and minutes separated by a ":". A "*"
   indicates "00:00". If time is given then it must contain a valute for both
   hour and minute.
-End: Time when event should end. Hours and minutes separated by a ":". A "*"
+* End: Time when event should end. Hours and minutes separated by a ":". A "*"
   indicates "23:59". If time is given then it must contain a valute for both
   hour and minute.
 
 When validation is performed it matches
-((current time >= start time) and (current time <= end time))
+```((current time >= start time) and (current time <= end time))```
 
 If $onlyNow is set to true then only filters valid at the registered time will
 be added.
