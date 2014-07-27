@@ -1,18 +1,14 @@
-TimeControl
-===========
+#TimeControl
 Simple manual
 TimeControl is a simple class for validating time.
 It can be used in access control system to determine if a user can login or not
 depending on what time it is.
 
-Functions
---------------------------------------------------------------------------------
-Clean();
-==============
+##Functions
+###Clean();
 Removes all filters.
  
-AddFilter($filter, $onlyNow);
-=============================
+###AddFilter($filter, $onlyNow);
 Adds a new filter.
 The filter is composed as follows:
 {action};{year};{month};{day};{start};{end}
@@ -46,19 +42,16 @@ When validation is performed it matches
 If $onlyNow is set to true then only filters valid at the registered time will
 be added.
 
-GetFilterArray();
-=============================
+###GetFilterArray();
 Returns the filters added sofar as an array. This array can be used as an
 argument for SetFilterArray which means that it is possible to store the
 filterarray in a database and load it at an appropriate time.
 
-SetFilterArray($filter);
-=============================
+###SetFilterArray($filter);
 Sets the internal filters. The filter supplied as an argument should be an
 result from GetFilterArray.
 
-Validate();
-=============================
+###Validate();
 A call to Validate will go through all filters to check if there is a match to
 the current time. If a match is found that will render the result false the rest
 of the filters will not be checked.
@@ -67,6 +60,7 @@ If one or more results is found that is a match for true then Validate will
 return true.
 If no match for either true or false is found then Validate will return 0.
 
+```
 <?php
 include("timecontrol.php");
 $tc = new TimeControl();
@@ -92,3 +86,4 @@ if($result == true) {
   // week 22 on monday through wednesday)
 }
 ?>
+```
