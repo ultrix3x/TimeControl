@@ -60,7 +60,7 @@ If one or more results is found that is a match for true then Validate will
 return true.
 If no match for either true or false is found then Validate will return 0.
 
-'''
+```php
 <?php
 include("timecontrol.php");
 $tc = new TimeControl();
@@ -86,4 +86,4 @@ if($result == true) {
   // week 22 on monday through wednesday)
 }
 ?>
-'''
+```
